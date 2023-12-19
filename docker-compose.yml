@@ -17,7 +17,7 @@ services:
     container_name: ohif
     image: ohif/viewer
     ports:
-      - 3000:80
+      - 3050:80
     environment:
       - APP_CONFIG:/usr/share/nginx/html/app-config.js
     volumes:
