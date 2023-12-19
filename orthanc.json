@@ -1,5 +1,5 @@
 {
-  "Name" : "M A P D R",
+  "Name" : "PERSIST PACS",
   "StorageDirectory" : "/var/lib/orthanc/db",
   "IndexDirectory" : "/var/lib/orthanc/db",
   "StorageCompression" : true,
@@ -21,7 +21,7 @@
   "WebDavDeleteAllowed" : false,
   "WebDavUploadAllowed" : true,
   "DicomServerEnabled" : true,
-  "DicomAet" : "MAPDR",
+  "DicomAet" : "PERSIST-PACS",
   "DicomCheckCalledAet" : true,
   "DicomPort" : 4242,
   "DefaultEncoding" : "Latin1",
@@ -48,7 +48,6 @@
   "DicomAlwaysAllowMove" : false,
   "DicomCheckModalityHost" : false,
   "DicomModalities" : {
-      // "MAPDRX" : [ "MAPDR", "127.0.0.1", 11112]
   },
   "DicomModalitiesInDatabase" : false,
   "DicomEchoChecksFind" : false,
@@ -64,12 +63,9 @@
   "HttpTimeout" : 60,
   "HttpsVerifyPeers" : true,
   "HttpsCACertificates" : "/etc/ssl/certs/ca-certificates.crt",
-"UserMetadata" : {
-    // "Sample" : 1024
+  "UserMetadata" : {
   },
   "UserContentType" : {
-    // "sample" : 1024
-    // "sample2" : [ 1025, "application/pdf" ]
   },
   "StableAge" : 60,
   "StrictAetComparison" : false,
@@ -115,6 +111,16 @@
   "Warnings" : {
     "W001_TagsBeingReadFromStorage": true,
     "W002_InconsistentDicomTagsInDb": true
+  },
+  "PostgreSQL": {
+    "EnableIndex": true,
+    "EnableStorage": false,
+    "Port": 5432,
+    "Host": "persist.rokcs",
+    "Database": "persistepacs",
+    "Username": "persistepacs",
+    "Password": "2QHRCUagsldhgk",
+    "EnableSsl": false,
+    "Lock": false
   }
-
 }
