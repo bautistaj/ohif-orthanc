@@ -116,7 +116,7 @@
     "EnableIndex": true,
     "EnableStorage": false,
     "Port": 5432,
-    "Host": "persist.rokcs",
+    "Host": "persist.rocks",
     "Database": "persistepacs",
     "Username": "persistepacs",
     "Password": "2QHRCUagsldhgk",
