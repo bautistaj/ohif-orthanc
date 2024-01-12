@@ -1,23 +1,10 @@
 version: "3"
 services:
-  pacs:
-    container_name: orthanc
-    image: jodogne/orthanc-plugins
-    ports:
-      - 8042:8042
-      - 4242:4242
-    volumes:
-      - ./orthanc.json:/etc/orthanc/orthanc.json:ro
-      - ./orthanc_db:/var/lib/orthanc/db/
-    restart: always
-    networks:
-      - pacs
-
   ohif_viewer:
     container_name: ohif
     image: ohif/viewer
     ports:
-      - 3050:80
+      - 3051:80
     environment:
       - APP_CONFIG:/usr/share/nginx/html/app-config.js
     volumes:
@@ -26,8 +13,8 @@ services:
       - ./persist_logo.png:/usr/share/nginx/html/logo.png:ro
     restart: always
     networks:
-      - pacs
+      - dcm4chee
 
 networks:
-  pacs:
+  dcm4chee:
     external: true
