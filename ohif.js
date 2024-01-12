@@ -7,7 +7,7 @@ window.config = {
   servers: {
     dicomWeb: [
       {
-        name: 'dcm4chee',
+        name: 'DCM4CHEE',
         wadoUriRoot: '/dcm4chee-arc/aets/DCM4CHEE/wado',
         qidoRoot: '/dcm4chee-arc/aets/DCM4CHEE/rs',
         wadoRoot: '/dcm4chee-arc/aets/DCM4CHEE/rs',
@@ -15,7 +15,7 @@ window.config = {
         imageRendering: 'wadors',
         thumbnailRendering: 'wadors',
         enableStudyLazyLoad: true,
-        supportsFuzzyMatching: true,
+        supportsFuzzyMatching: true
       },
     ],
   },
