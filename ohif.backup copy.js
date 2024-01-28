@@ -12,12 +12,33 @@ window.config = {
         qidoRoot: 'http://154.38.162.74:8080/dcm4chee-arc/aets/DCM4CHEE/rs',
         wadoRoot: 'http://154.38.162.74:8080/dcm4chee-arc/aets/DCM4CHEE/rs',
         qidoSupportsIncludeField: true,
+        supportsReject: true,
         imageRendering: 'wadors',
         thumbnailRendering: 'wadors',
         enableStudyLazyLoad: true,
         supportsFuzzyMatching: true,
+        supportsWildcard: true,
+        omitQuotationForMultipartRequest: true,
       },
     ],
+  },
+  whiteLabeling: {
+    /* Used to replace the default Logo */
+    createLogoComponentFn: function(React) {
+      return React.createElement('a', {
+        target: '_self',
+        rel: 'noopener noreferrer',
+        className: 'header-brand',
+        href: '/',
+        style: {
+          display: 'block',
+          background: 'url(/persist_logo.png)',
+          backgroundSize: 'contain',
+          backgroundRepeat: 'no-repeat',
+          width: '200px',
+        },
+      });
+    },
   },
   // Extensions should be able to suggest default values for these?
   // Or we can require that these be explicitly set
@@ -117,12 +138,8 @@ window.config = {
     },
   ],
   cornerstoneExtensionConfig: {},
-  // Following property limits number of simultaneous series metadata requests.
-  // For http/1.x-only servers, set this to 5 or less to improve
-  //  on first meaningful display in viewer
-  // If the server is particularly slow to respond to series metadata
-  //  requests as it extracts the metadata from raw files everytime,
-  //  try setting this to even lower value
-  // Leave it undefined for no limit, sutiable for HTTP/2 enabled servers
-  // maxConcurrentMetadataRequests: 5,
+
+  // studyListFunctionsEnabled is set to true to enable DICOM uploading
+  studyListFunctionsEnabled: true
+  
 };

@@ -4,6 +4,7 @@ docker run --network=dcm4chee --name db -p 5450:5432 -e POSTGRES_DB=pacsdb -e PO
 
 docker run --network=dcm4chee --name arc -p 8080:8080 -p 8443:8443 -p 9990:9990 -p 11112:11112 -p 2575:2575 -e POSTGRES_DB=pacsdb -e POSTGRES_USER=pacs -e POSTGRES_PASSWORD=pacs -e WILDFLY_WAIT_FOR="ldap:389 db:5432" -v /etc/localtime:/etc/localtime:ro -v /etc/timezone:/etc/timezone:ro -v /var/local/dcm4chee-demo-arc/wildfly:/opt/wildfly/standalone -d dcm4che/dcm4chee-arc-psql:5.12.0
 
+docker run --network=dcm4chee --name oviyam -p 90:8080 -p 1025:1025 -v /var/local/dcm4chee-demo-arc/oviyam:/usr/local/tomcat/work -d informaticamedica/oviyam:2.7.1
 
 docker stop db ldap arc
 docker rm db ldap arc
